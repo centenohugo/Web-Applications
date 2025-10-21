@@ -1,4 +1,3 @@
-/* Make the section take full available height (optional) */
 .content {
     display: flex; 
 }
@@ -41,8 +40,8 @@ button a{
 
 .post-container img {
     margin: 10px auto;          /* center horizontally */
-    width: 500px;
-    max-width: 100%;
+    width: 200px;
+    max-width: 70%;
     height: auto;
 }
 
