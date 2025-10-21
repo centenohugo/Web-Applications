@@ -6,7 +6,9 @@
         <h2>Posts from the people you follow</h2>       
             {% include 'post_template.html' %} 
         <h3>Comments:</h3>
-            
+            {% for comment in post.comments%}
+            <p>{{comment}}</p>
+            {% endfor %}
     </div>   
     <div class="fixed">
         <span>Welcome, Dwight !</span>

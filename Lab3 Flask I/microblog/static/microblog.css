@@ -1,26 +1,33 @@
 .content {
-    display: flex;
-    justify-content: space-between; /* push scrollable left and fixed right */
-    align-items: flex-start;        /* align items to the top */
-    gap: 20px;                       /* spacing between main and sidebar */
+  display: flex;                    /* put children side-by-side */
+  justify-content: space-between;   /* push .fixed to the right */
+  align-items: flex-start;          /* align to the top */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .scrollable {
-    flex: 1;                         /* take remaining space */
-    padding: 20px;
+  flex: 0.5;                          /* take up remaining width */
+  padding: 20px;
 }
 
 .fixed {
-    position: fixed;      /* pins it to viewport */
-    top: 100px;           /* distance from top, adjust as needed */
-    right: 0;             /* stick to the right edge */
-    width: 250px;         /* sidebar width */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  width: 250px;                     /* sidebar width */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
+
+.fixed img {
+  width: 150px;          /* desired size */
+  height: 150px;         /* make it square */
+  border-radius: 50%;    /* makes it perfectly round */
+  object-fit: cover;     /* crop image to fill the circle */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* optional shadow */
+}
+
 
 
 .fixed img {
