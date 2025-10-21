@@ -11,8 +11,10 @@
         <br>
         <span class="date">{{ post.timestamp }}</span>
         <br>
-        <button>
-            <a href="{{ url_for('main.test_post') }}">View comments</a>
-        </button>
+        <h4>Comments:</h4>
+        <div class="comments">
+            {% for comment in post.comments %}
+            {{comment}}<br>
+            {% endfor %}
     </div>
 </div>

@@ -1,3 +1,53 @@
-body {
-    background-color: beige;
+.content {
+    display: flex;
+    justify-content: space-between; /* push scrollable left and fixed right */
+    align-items: flex-start;        /* align items to the top */
+    gap: 20px;                       /* spacing between main and sidebar */
 }
+
+.scrollable {
+    flex: 1;                         /* take remaining space */
+    padding: 20px;
+}
+
+.fixed {
+    position: fixed;      /* pins it to viewport */
+    top: 100px;           /* distance from top, adjust as needed */
+    right: 0;             /* stick to the right edge */
+    width: 250px;         /* sidebar width */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.fixed img {
+    margin: 10px auto;          /* center horizontally */
+    max-width: 100%;
+    height: auto;
+}
+button a{
+    text-decoration: none;
+    color: black;
+}
+
+.post-container {
+    display: flex;              /* enable flex layout */
+    flex-direction: column;     /* stack image and text vertically */
+    align-items: center;        /* center horizontally */
+    text-align: center;         /* center text inside the .text div */
+    gap: 10px;                  /* space between image and text */
+    padding: 10px;              /* optional spacing around container */
+}
+
+.post-container img {
+    display: block;       /* ensures margin auto works for centering */
+    margin: 10px auto;    /* center horizontally */
+    width: 300px;         /* desired fixed width */
+    height: auto;         /* maintain aspect ratio */
+}
+
+
+
