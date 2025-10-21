@@ -1,0 +1,60 @@
+.content {
+  display: flex;                    /* put children side-by-side */
+  justify-content: space-between;   /* push .fixed to the right */
+  align-items: flex-start;          /* align to the top */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.scrollable {
+  flex: 0.5;                          /* take up remaining width */
+  padding: 20px;
+}
+
+.fixed {
+  width: 250px;                     /* sidebar width */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.fixed img {
+  width: 150px;          /* desired size */
+  height: 150px;         /* make it square */
+  border-radius: 50%;    /* makes it perfectly round */
+  object-fit: cover;     /* crop image to fill the circle */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* optional shadow */
+}
+
+
+
+.fixed img {
+    margin: 10px auto;          /* center horizontally */
+    max-width: 100%;
+    height: auto;
+}
+button a{
+    text-decoration: none;
+    color: black;
+}
+
+.post-container {
+    display: flex;              /* enable flex layout */
+    flex-direction: column;     /* stack image and text vertically */
+    align-items: center;        /* center horizontally */
+    text-align: center;         /* center text inside the .text div */
+    gap: 10px;                  /* space between image and text */
+    padding: 10px;              /* optional spacing around container */
+}
+
+.post-container img {
+    display: block;       /* ensures margin auto works for centering */
+    margin: 10px auto;    /* center horizontally */
+    width: 300px;         /* desired fixed width */
+    height: auto;         /* maintain aspect ratio */
+}
+
+
+
