@@ -6,7 +6,6 @@
 .scrollable {
     flex: 1;                 /* Equal width */
     padding: 20px;           /* Optional spacing */
-    background-color: #f0f0f0;
 }
 
 .fixed {
@@ -14,7 +13,6 @@
     padding: 20px;           /* Optional spacing */
     justify-content: center; /* Center content vertically */
     align-items: center;   /* Center content horizontally */
-    background-color: #d0d0d0;
 }
 
 .fixed *{    
