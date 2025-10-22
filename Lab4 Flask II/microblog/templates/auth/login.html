@@ -1,5 +1,14 @@
-    <form action="{{ url_for('auth.signup_post') }}" method="post">
-        <div><label>User name: <input type="text" name="username" required/></label></div>
-        <div><label>Password: <input type="password" name="password" required/></label></div>
-        <div><input type="submit" value="Login"/></div>
-    </form>
+{% extends 'base.html' %}
+    {% block content %}
+        <form action="{{ url_for('auth.login_post') }}" method="post">
+            <div><label>Email: <input type="text" name="email" required/></label></div>
+            <div><label>Password: <input type="password" name="password" required/></label></div>
+            <div><input type="submit" value="Login"/></div>
+            <div><a href="{{ url_for('auth.signup') }}">Don't have an account?</a></div>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="notification">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+    {% endblock %}

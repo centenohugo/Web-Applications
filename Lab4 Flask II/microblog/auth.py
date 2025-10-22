@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash
 
 from . import db
 from . import model
@@ -10,7 +11,6 @@ bp = Blueprint("auth", __name__)
 @bp.route("/signup")
 def signup():
     return render_template("auth/signup.html")
-
 
 @bp.route("/signup", methods=["POST"])
 def signup_post():
@@ -32,4 +32,22 @@ def signup_post():
     db.session.add(new_user)
     db.session.commit()
     flash("You've successfully signed up!")
-    return redirect(url_for("main.index"))
+    return redirect(url_for("auth.login"))
+
+
+@bp.route("/login")
+def login():
+    return render_template("auth/login.html")
+
+@bp.route("/login", methods=["POST"])
+def login_post():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    # Get the user with that email from the database:
+    query = db.select(model.User).where(model.User.email == email)
+    user = db.session.execute(query).scalar_one_or_none()
+    if user and check_password_hash(user.password, password):
+        return redirect(url_for("main.index"))
+    else:
+        flash("Sorry, the provided data is incorrect")
+        return redirect(url_for("auth.login"))
