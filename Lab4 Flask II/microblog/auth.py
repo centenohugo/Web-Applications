@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
+import flask_login
 
 from . import db
 from . import model
@@ -47,7 +48,13 @@ def login_post():
     query = db.select(model.User).where(model.User.email == email)
     user = db.session.execute(query).scalar_one_or_none()
     if user and check_password_hash(user.password, password):
+        flask_login.login_user(user)
         return redirect(url_for("main.index"))
     else:
         flash("Sorry, the provided data is incorrect")
         return redirect(url_for("auth.login"))
+    
+@bp.route("/logout")
+def logout():
+    flask_login.logout_user()
+    return redirect(url_for("auth.login"))

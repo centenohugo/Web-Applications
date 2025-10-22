@@ -1,5 +1,6 @@
 import datetime
 import dateutil.tz
+import flask_login
 
 from flask import Blueprint, render_template
 
@@ -19,6 +20,7 @@ def index():
     return render_template("main/index.html", posts=posts)
 
 @bp.route("/profile")
+@flask_login.login_required
 def test_user():
     user = model.User(2, "dwightschrute@gmail.com", "Dwight Schrute","imgs/profilepic.jpg")    
     posts = [
@@ -32,6 +34,7 @@ def test_user():
     return render_template("main/profile.html", posts=posts, user=user)
 
 @bp.route("/post")
+@flask_login.login_required
 def test_post():
     user = model.User(2, "dwightschrute@gmail.com", "Dwight Schrute","imgs/profilepic.jpg")    
     post = model.Post(
