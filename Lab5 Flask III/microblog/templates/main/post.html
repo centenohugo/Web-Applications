@@ -13,7 +13,7 @@
     <div class="fixed">
         <span>Welcome, Dwight !</span>
         <img src="static/imgs/Dwight_Schrute.jpg" alt="Profile Picture" width="150">
-        <button>Create Post</button>
+        <button action="{{ url_for('main.new_post') }}">Create Post</button>
         <button>
             <a href="{{ url_for('main.test_user') }}">View your profile</a>
         </button>

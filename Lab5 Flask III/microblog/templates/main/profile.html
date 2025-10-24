@@ -2,11 +2,11 @@
 
 {% block content %}
     <section>
-        <h2>Hello {{ user.name }}</h2>
+        <h2>Hello {{ current_user.name }}</h2>
         <h3>Your information</h3>
-        <p>Name: {{ user.name }}</p>
-        <p>Mail: {{ user.email }}</p>
-        <p>Number of posts: {{ user.posts | length }}</p>
+        <p>Name: {{ current_user.name }}</p>
+        <p>Mail: {{ current_user.email }}</p>
+        <p>Number of posts: {{ current_user.posts | length }}</p>
         <h3>Your Posts</h3>
         {% include 'posts_template.html' %}
     </section>

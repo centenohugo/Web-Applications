@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Microblogging app</title>
+        <title>Microblogging App</title>
         <link rel="stylesheet"
               href="{{ url_for('static', filename='microblog.css') }}">
     </head>
     <body>
         <header>
             <h1>Microblogging</h1>
+            <nav>
             <a href="{{ url_for('main.index') }}">Home</a>
-            {% if not current_user.is_authenticated: %}
+            {% if current_user.is_authenticated: %}
+                <a href="{{url_for('auth.logout')}}">Logout</a>
+                           
+            {% else: %}
                 <a href="{{url_for('auth.login')}}">Login<a>
                 <a href="{{url_for('auth.signup')}}">Signup<a>
-            {% else: %}
-                <a href="{{url_for('auth.logout')}}">Logout</a>
-                <div>Hello: {{current_user.name}}</div>
+            {% endif %}
+            </nav>
+            {% if current_user.is_authenticated %}
+                <div>Hello: {{current_user.name}}</div> 
             {% endif %}
         </header>
         <section class="content">

@@ -1,17 +1,17 @@
 <div class="post">
     <div class="post-container">
-        <div class="text">
+        <div class="text" style="font-weight:bold">
             {{ post.text }}
         </div>
-    </div>
-
-    <div class="metadata">
-        <span class="author">By {{ post.user.name }}</span>
-        <br>
-        <span class="date">{{ post.timestamp }}</span>
-        <br>
-        <button>
-            <a href="{{ url_for('main.test_post') }}">View comments</a>
-        </button>
+        <div class="metadata">
+            {% if post.img %}
+                <img src="{{ url_for('static', filename=post.img) }}" alt="Post Image">
+            {% endif %}
+            <span class="author">By {{ post.user.name }}</span>
+            <br>
+            <button>
+                <a href="{{ url_for('main.test_post') }}">View comments</a>
+            </button>
+        </div>
     </div>
 </div>

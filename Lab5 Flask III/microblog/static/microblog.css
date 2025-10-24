@@ -1,3 +1,31 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+header, footer{
+  background-color: #1877F2;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+header nav {
+    display: flex;       /* make links a flex row */
+    justify-content: flex-start; /* align all links to the left */
+    gap: 15px;           /* space between links */
+}
+header div{
+    font-size: 24px;
+    font-weight: bold;
+}
+header nav a {
+    color: white;
+    display: inline-block;  /* horizontal links */
+    margin-left: 15px;      /* spacing between links */
+    align-items:left;
+}
+
+
 .content {
   display: flex;                    /* put children side-by-side */
   justify-content: space-between;   /* push .fixed to the right */
@@ -7,7 +35,7 @@
 }
 
 .scrollable {
-  flex: 0.5;                          /* take up remaining width */
+  flex: 1;                          /* take up remaining width */
   padding: 20px;
 }
 
@@ -54,6 +82,15 @@ button a{
     margin: 10px auto;    /* center horizontally */
     width: 300px;         /* desired fixed width */
     height: auto;         /* maintain aspect ratio */
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;      /* set a width */
+    margin: 0 auto;    /* center horizontally */
+    padding:40px;
 }
 
 

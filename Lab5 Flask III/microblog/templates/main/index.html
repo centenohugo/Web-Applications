@@ -9,10 +9,8 @@
     <div class="fixed">
         Welcome, Dwight !
         <img src="static/imgs/Dwight_Schrute.jpg" alt="Profile Picture" width="150">
-        <button>Create Post</button>
-        <button>
-            <a href="{{ url_for('main.test_user') }}">View your profile</a>
-        </button>
+        <button><a href="{{url_for('main.new_post')}}">Create Post</a></button>
+        <button><a href="{{ url_for('main.test_user') }}">View your profile</a></button>
     </div>
 </section>
 

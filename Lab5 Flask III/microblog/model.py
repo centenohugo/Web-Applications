@@ -25,6 +25,7 @@ class Post(db.Model):
     timestamp: Mapped[datetime.datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
+    img: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     response_to_id: Mapped[Optional[int]] = mapped_column(ForeignKey("post.id"))
     response_to: Mapped["Post"] = relationship(
         back_populates="responses", remote_side=[id]
