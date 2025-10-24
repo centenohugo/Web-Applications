@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="content">
+    <div class="scrollable">
+        <h2>Posts from the people you follow</h2>       
+            {% include 'posts_template.html' %} 
+    </div>   
+    <div class="fixed">
+        Welcome, Dwight !
+        <img src="static/imgs/Dwight_Schrute.jpg" alt="Profile Picture" width="150">
+        <button>Create Post</button>
+        <button>
+            <a href="{{ url_for('main.test_user') }}">View your profile</a>
+        </button>
+    </div>
+</section>
+
+{% endblock %}
+
+
+
