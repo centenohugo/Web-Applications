@@ -6,12 +6,7 @@
         <h2>Posts from the people you follow</h2>       
             {% include 'posts_template.html' %} 
     </div>   
-    <div class="fixed">
-        Welcome, Dwight !
-        <img src="static/imgs/Dwight_Schrute.jpg" alt="Profile Picture" width="150">
-        <button><a href="{{url_for('main.new_post')}}">Create Post</a></button>
-        <button><a href="{{ url_for('main.test_user') }}">View your profile</a></button>
-    </div>
+    {% include "sidebar.html" %}
 </section>
 
 {% endblock %}

@@ -13,6 +13,7 @@ class User(flask_login.UserMixin, db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     email: Mapped[str] = mapped_column(String(128), unique=True)
     name: Mapped[str] = mapped_column(String(64))
+    img: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     password: Mapped[str] = mapped_column(String(256))
     posts: Mapped[List["Post"]] = relationship(back_populates="user")
 

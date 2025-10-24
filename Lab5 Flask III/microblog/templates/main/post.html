@@ -10,13 +10,7 @@
             <p>{{comment}}</p>
             {% endfor %}
     </div>   
-    <div class="fixed">
-        <span>Welcome, {{current_user.name}} !</span>
-        <button action="{{ url_for('main.new_post') }}">Create Post</button>
-        <button>
-            <a href="">View your profile</a>
-        </button>
-    </div>
+    {% include "sidebar.html" %}
 </section>
 
 {% endblock %}

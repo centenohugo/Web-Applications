@@ -1,0 +1,7 @@
+<div class="fixed">
+    <img src="{{ url_for('static', filename='imgs/users/' + current_user.name + '.jpg') }}" alt="Profile Picture" width="150">
+    <div style="margin-top: 10px;">
+      <a href="{{ url_for('main.new_post') }}" class="btn">Create Post</a>
+      <a href="{{ url_for('main.get_user', user_id=current_user.id) }}" class="btn">View your profile</a>
+    </div>
+</div>

@@ -14,9 +14,18 @@ bp = Blueprint("main", __name__)
 @bp.route("/")
 @flask_login.login_required
 def index():
-    query = db.select(model.Post).order_by(model.Post.timestamp.desc()).limit(10)
+    current_user_id = flask_login.current_user.id
+
+    query = (
+        db.select(model.Post)
+        .where(model.Post.user_id != current_user_id) 
+        .order_by(model.Post.timestamp.desc())
+        .limit(10)
+    )
+
     posts = db.session.execute(query).scalars().all()
     return render_template("main/index.html", posts=posts)
+
 
 @bp.route("/profile/user/<int:user_id>")
 @flask_login.login_required
@@ -30,7 +39,6 @@ def get_user(user_id):
     posts = db.session.execute(posts_query).scalars().all()
 
     return render_template("main/profile.html", user=user, posts=posts)
-
 
 @bp.route("/post")
 @flask_login.login_required
