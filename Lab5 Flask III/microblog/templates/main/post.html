@@ -11,11 +11,10 @@
             {% endfor %}
     </div>   
     <div class="fixed">
-        <span>Welcome, Dwight !</span>
-        <img src="static/imgs/Dwight_Schrute.jpg" alt="Profile Picture" width="150">
+        <span>Welcome, {{current_user.name}} !</span>
         <button action="{{ url_for('main.new_post') }}">Create Post</button>
         <button>
-            <a href="{{ url_for('main.test_user') }}">View your profile</a>
+            <a href="">View your profile</a>
         </button>
     </div>
 </section>
